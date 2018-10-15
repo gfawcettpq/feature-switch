@@ -72,7 +72,7 @@ class FeatureSwitchServiceProvider extends ServiceProvider
     {
         Blade::directive('feature', function($feature)
         {
-            $feature = explode( "('" , rtrim( $feature , "')" ))[1];
+            $feature = explode( "'" , rtrim( $feature , "'" ))[1];
             $feature = Feature::isEnabled($feature);
 
             if (!$feature) return "<?php if ( false === true ) : ?>";
